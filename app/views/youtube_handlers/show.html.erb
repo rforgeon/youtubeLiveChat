@@ -1,0 +1,39 @@
+<h1><%=@youtube_handler.name%></h1>
+
+<br>
+<div id='script' style='margin:10px;'></div>
+<h2>Script</h2>
+<h3><%=@youtube_handler.script%></h3>
+
+<td><%= button_to 'Start', class: :popup_link, action: :led, id: @youtube_handler.id, command: 'start' %></td>
+
+<!-- <div id="popup"></div> -->
+
+<img id = 'spinner' src='https://media.giphy.com/media/TvLuZ00OIADoQ/giphy.gif'></img>
+
+<td><%= button_to 'Win', action: :pingLed, arg: 'win' %></td>
+
+
+
+
+
+<script >
+  $(document).ready(function() {
+    $("#spinner").hide();
+     $(".popup").click(function(e) {
+        e.preventDefault();
+        $("#spinner").show();
+     });
+
+
+
+
+  // $(document).ajaxStart(function() {
+  //   $("#spinner").fadeIn('slow');
+  // }).ajaxStop(function() {
+  //     $("#spinner").hide();
+  // });
+
+    });
+
+</script>
