@@ -12,13 +12,13 @@ class YoutubeHandlersController < ApplicationController
 
     key = ENV["youtube_key"]
 
-    stream_id = 'o8no-xwBmzY'
+    stream_id = 'iRhAqi33Hgo'
 
     #broadcast = HTTParty.get("https://www.googleapis.com/youtube/v3/liveBroadcasts?part=snippet&id=#{stream_id}&key=#{key}")
 
     #render json: broadcast.body
 
-    chat_id = 'Cg0KC284bm8teHdCbXpZ'
+    chat_id = 'Cg0KC2lSaEFxaTMzSGdv'
 
 
     response = HTTParty.get("https://www.googleapis.com/youtube/v3/liveChat/messages?liveChatId=#{chat_id}&part=id%2C+snippet%2C+authorDetails&key=#{key}")
@@ -63,8 +63,9 @@ class YoutubeHandlersController < ApplicationController
 
             lastReadMsgId = json['items'].last['id']
 
+            return_code_json = JSON.parse(response)
 
-            if response['return_value'] == 100
+            if return_code_json['return_value'] == 100
               pingLed('wincode111') #wincode111 = win funtion on proton
             end
 
@@ -103,6 +104,10 @@ class YoutubeHandlersController < ApplicationController
 
     return response.body
 
+  end
+
+  def reset
+    pingLed('reset')
   end
 
   def index

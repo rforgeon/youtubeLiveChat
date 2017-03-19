@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   scope '/script', :controller => :youtube_handlers do
         post :led
         post :pingLed
+        post :reset
       end
 
 

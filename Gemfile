@@ -48,6 +48,9 @@ gem "figaro"
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
 
+#background worker
+gem 'sidekiq'
+
 #bootstrap from
 gem 'bootstrap_form'
 
@@ -55,6 +58,8 @@ gem 'bootstrap_form'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'pry'
+  gem 'pry-byebug'
 end
 
 group :development do

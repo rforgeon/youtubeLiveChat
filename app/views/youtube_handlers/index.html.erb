@@ -1,3 +1,17 @@
+<script>
+
+  $(document).ready(function() {
+  $('.newEvent').click(function(event){
+    alert("Clicked!")
+      ga('brandTrack.send', 'event', 'product', 'purchased',{'metric1':1, 'dimension2':'productIDfiddle2', 'dimension1': 'userIDfiddle'});
+    }
+    });
+  });
+});
+
+</script>
+
+
 <h1>Live Events</h1>
 
 <div class="row">
@@ -15,8 +29,23 @@
         </div>
       <% end %>
 
-  <div style="margin-top:20px">
-    <%= link_to "New Live Event", new_youtube_handler_path, class: 'btn btn-success' %>
+  <div id="newEvent" style="margin-top:20px">
+    <%= link_to "New Live Event", new_youtube_handler_path, class: 'newEvent btn btn-success'  %>
   </div>
 
 </div>
+
+
+<script >
+  $(document).ready(function() {
+     $("#newEvent").click(function(e) {
+
+       //alert("Clicked!")
+       ga('brandTrack.send', 'event', 'product', 'purchased',{'metric2':10.00, 'dimension2':'newEventClick', 'dimension1': 'userID-Ralphy'});
+
+       //e.preventDefault();
+     });
+
+    });
+
+</script>
